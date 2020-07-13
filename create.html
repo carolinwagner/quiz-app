@@ -11,33 +11,29 @@
     </header>
     <main>
       <section>
-        <form action="add-question" method="post">
+        <form>
           <div>
-            <label for="add-question">Add Question</label>
-            <textarea id="text" name="text" cols="35" rows="6"></textarea>
+            <label for="question">Add Question</label>
+            <textarea
+              id="question"
+              name="question"
+              cols="35"
+              rows="6"
+            ></textarea>
           </div>
+
+          <div>
+            <label for="answer">Add Answer</label>
+            <textarea id="answer" name="answer" cols="35" rows="6"></textarea>
+          </div>
+
+          <div>
+            <label for="tags">Add Tags</label>
+            <textarea id="tags" name="tags" cols="35" rows="6"></textarea>
+          </div>
+          <button>Submit</button>
         </form>
       </section>
-
-      <section>
-        <form action="add-answer" method="post">
-          <div>
-            <label for="add-answer">Add Answer</label>
-            <textarea id="text" name="text" cols="35" rows="6"></textarea>
-          </div>
-        </form>
-      </section>
-
-      <section>
-        <form action="add-tags" method="post">
-          <div>
-            <label for="add-question">Add Tags</label>
-            <textarea id="text" name="text" cols="35" rows="6"></textarea>
-          </div>
-        </form>
-      </section>
-
-      <button>Submit</button>
     </main>
     <footer>
       <div>
