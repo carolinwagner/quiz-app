@@ -3,15 +3,41 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Create</title>
+    <title>quiz-app</title>
   </head>
   <body>
     <header>
-      <h1>CREATE</h1>
+      <h1>Create</h1>
     </header>
     <main>
-      <!-- Add question
-    submit -->
+      <section>
+        <form action="add-question" method="post">
+          <div>
+            <label for="add-question">Add Question</label>
+            <textarea id="text" name="text" cols="35" rows="6"></textarea>
+          </div>
+        </form>
+      </section>
+
+      <section>
+        <form action="add-answer" method="post">
+          <div>
+            <label for="add-answer">Add Answer</label>
+            <textarea id="text" name="text" cols="35" rows="6"></textarea>
+          </div>
+        </form>
+      </section>
+
+      <section>
+        <form action="add-tags" method="post">
+          <div>
+            <label for="add-question">Add Tags</label>
+            <textarea id="text" name="text" cols="35" rows="6"></textarea>
+          </div>
+        </form>
+      </section>
+
+      <button>Submit</button>
     </main>
     <footer>
       <div>
