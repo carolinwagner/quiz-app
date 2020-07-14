@@ -1,7 +1,36 @@
 @import './base';
 @import './utility';
 @import './colors';
+@import 'components/button';
+@import 'components/header';
+@import 'components/footer';
 
-.question-box__button {
-  border-radius: 30px;
+.card {
+  background-color: white;
+  border-radius: 10px;
+  padding: 30px;
+  border-style: solid;
+  border-color: grey;
+}
+
+footer {
+  background-color: #87cbac;
+  padding: 20px;
+  width: auto;
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 0;
+}
+
+header {
+  font-family: 'Bungee Shade', cursive;
+  border-bottom: solid 10px #8ce5c4;
+}
+
+.card__bookmark-button {
+  background-color: #8ff2ee;
+  border-radius: 4px;
+  display: inline-block;
+  padding: 6px 15px;
+  box-align: right;
 }
