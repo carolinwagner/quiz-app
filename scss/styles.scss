@@ -15,16 +15,6 @@
   position: relative;
 }
 
-.card__answer-button {
-  background-color: #8ff2ee;
-  border-radius: 4px;
-  display: inline-block;
-  padding: 6px 15px;
-  text-align: right;
-  margin: 20px;
-  font-size: 80%;
-}
-
 .card__answer-container {
   text-align: center;
 }
@@ -49,4 +39,8 @@
 
 .card__headline {
   font-weight: bolder;
+}
+
+.header__headline {
+  text-transform: uppercase;
 }

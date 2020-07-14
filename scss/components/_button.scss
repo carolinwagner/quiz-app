@@ -10,3 +10,14 @@
   border-right: 25px solid #8ff2ee;
   border-bottom: 25px solid white;
 }
+
+.card__answer-button,
+.submit-button {
+  background-color: #8ff2ee;
+  border-radius: 4px;
+  display: inline-block;
+  padding: 6px 15px;
+  text-align: right;
+  margin: 20px;
+  font-size: 80%;
+}

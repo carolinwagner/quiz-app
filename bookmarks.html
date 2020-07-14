@@ -4,40 +4,81 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quiz-App</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <header>
-      <h1>Bookmarks</h1>
+      <h1 class="header__headline">Bookmarks</h1>
     </header>
     <main>
-      <section>
+      <section class="card">
+        <button
+          class="card__bookmark-button p-0 card__bookmark-button--active"
+        ></button>
         <h2>Question</h2>
-        <button>Bookmark</button>
-        <p>
+        <p class="card__text card__text--question">
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rem odio cum
           repudiandae cumque eius mollitia voluptatem voluptas deleniti quo
           quaerat ratione unde, repellendus corporis nostrum repellat. Nisi
           accusantium tempora vel.
         </p>
-        <button>Show answer</button>
-        <ul>
+        <div class="card__answer-container">
+          <button class="card__answer-button">Show answer</button>
+        </div>
+
+        <ul class="tag-list p-0">
           <li>tag 1</li>
           <li>tag 2</li>
           <li>tag 3</li>
         </ul>
       </section>
 
-      <section>
+      <section class="card">
+        <button
+          class="card__bookmark-button p-0 card__bookmark-button--active"
+        ></button>
         <h2>Question</h2>
-        <button>Bookmark</button>
-        <p>
+        <p class="card__text card__text--question">
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rem odio cum
           repudiandae cumque eius mollitia voluptatem voluptas deleniti quo
           quaerat ratione unde, repellendus corporis nostrum repellat. Nisi
           accusantium tempora vel.
         </p>
-        <button>Show answer</button>
-        <ul>
+        <div class="card__answer-container">
+          <button class="card__answer-button">Show answer</button>
+        </div>
+
+        <ul class="tag-list p-0">
+          <li>tag 1</li>
+          <li>tag 2</li>
+          <li>tag 3</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <button
+          class="card__bookmark-button p-0 card__bookmark-button--active"
+        ></button>
+        <h2>Question</h2>
+        <p class="card__text card__text--question">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rem odio cum
+          repudiandae cumque eius mollitia voluptatem voluptas deleniti quo
+          quaerat ratione unde, repellendus corporis nostrum repellat. Nisi
+          accusantium tempora vel.
+        </p>
+        <div class="card__answer-container">
+          <button class="card__answer-button">Show answer</button>
+        </div>
+
+        <ul class="tag-list p-0">
           <li>tag 1</li>
           <li>tag 2</li>
           <li>tag 3</li>
@@ -47,11 +88,13 @@
 
     <footer>
       <div>
-        <nav>
-          <a href="index.html"><img src="" alt="Home" /></a>
-          <a href="bookmarks.html"><img src="" alt="Bookmarks" /></a>
-          <a href="create.html"><img src="" alt="Create" /></a>
-          <a href="profile.html"><img src="" alt="Profile" /></a>
+        <nav class="footer__nav">
+          <a href="index.html"><img src=img/home.png alt="Home" /></a>
+          <a href="bookmarks.html"
+            ><img src="img/bookmark.png" alt="Bookmarks"
+          /></a>
+          <a href="create.html"><img src="img/pen.png" alt="Create" /></a>
+          <a href="profile.html"><img src="img/profil.png" alt="Profile" /></a>
         </nav>
       </div>
     </footer>
