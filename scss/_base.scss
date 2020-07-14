@@ -2,9 +2,21 @@
   box-sizing: border-box;
 }
 
+html {
+  height: 100%;
+}
+
 body {
+  font-family: 'arial';
   margin: 0;
-  font-family: sans-serif;
-  background-color: salmon;
-  font-size: 112.5%;
+  padding: 20px;
+  background-color: black;
+  display: grid;
+  grid-template-columns: 1;
+  grid-template-rows: 3;
+  height: 100%;
+}
+
+main {
+  overflow: scroll;
 }
