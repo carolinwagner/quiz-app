@@ -1,0 +1,12 @@
+.card__bookmark-button {
+  position: absolute;
+  top: 0;
+  right: 1.5rem;
+  height: 70px;
+  width: 50px;
+  -webkit-transform: rotate(0deg) skew(0deg);
+  transform: rotate(0deg) skew(0deg);
+  border-left: 25px solid #8ff2ee;
+  border-right: 25px solid #8ff2ee;
+  border-bottom: 25px solid white;
+}
