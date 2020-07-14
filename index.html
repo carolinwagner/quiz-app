@@ -5,24 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quiz-App</title>
     <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <header>
       <h1>Quiz-App</h1>
     </header>
     <main>
-      <section class="question-box">
-        <h2 class="question-box__headline">Question</h2>
-        <button class="question-box__button">Bookmark</button>
-        <p class="question-box__text">
+      <section class="card">
+        <button class="card__bookmark-button card__bookmark-button--active">
+          Bookmark it!
+        </button>
+        <h2 class="card__headline">Question</h2>
+        <p class="card__text card__text--question">
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rem odio cum
           repudiandae cumque eius mollitia voluptatem voluptas deleniti quo
           quaerat ratione unde, repellendus corporis nostrum repellat. Nisi
           accusantium tempora vel.
         </p>
-        <button class="question-box__answer-button">Show answer</button>
+        <button class="card__answer-button">Show answer</button>
 
-        <ul class="tags">
+        <ul class="tag-list">
           <li>tag 1</li>
           <li>tag 2</li>
           <li>tag 3</li>

@@ -7,10 +7,10 @@ html {
 }
 
 body {
-  font-family: 'arial';
+  font-family: 'Roboto', sans-serif;
   margin: 0;
+  background-color: lightgrey;
   padding: 20px;
-  background-color: black;
   display: grid;
   grid-template-columns: 1;
   grid-template-rows: 3;
