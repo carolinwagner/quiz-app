@@ -2,6 +2,6 @@
   border-radius: 30px;
 }
 
-@import './base';
-@import './utility';
-@import './colors';
+@use './base';
+@use './utility';
+@use './colors';

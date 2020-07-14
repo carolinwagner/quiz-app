@@ -1,1 +1,1 @@
-.question-box__button{border-radius:30px}*{box-sizing:border-box}html{height:100%}body{font-family:'Roboto', sans-serif;margin:0;background-color:lightgrey;padding:20px;display:grid;grid-template-columns:1;grid-template-rows:3;height:100%}main{overflow:scroll}.m-10{margin:10px}
+.question-box__button{border-radius:30px}@use './base';@use './utility';@use './colors'
