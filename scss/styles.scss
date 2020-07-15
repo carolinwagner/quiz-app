@@ -22,6 +22,9 @@
 .tag-list {
   list-style-type: none;
   line-height: 2em;
+  position: relative;
+  left: auto;
+  right: auto;
 }
 
 .tag-list li {
@@ -30,6 +33,8 @@
   border: 1px solid #8ac4ff;
   border-radius: 8px;
   background-color: #8de4ff;
+  margin-bottom: 30px;
+  white-space: nowrap;
 }
 
 .header__headline {
