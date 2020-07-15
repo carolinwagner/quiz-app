@@ -4,20 +4,7 @@
 @import 'components/button';
 @import 'components/header';
 @import 'components/footer';
-
-.card {
-  background-color: white;
-  border-radius: 10px;
-  padding: 30px;
-  border-style: solid;
-  border-color: grey;
-  margin: 0 5px 60px 5px;
-  position: relative;
-}
-
-.card__answer-container {
-  text-align: center;
-}
+@import 'components/card';
 
 .tag-list {
   list-style-type: none;
@@ -37,53 +24,64 @@
   white-space: nowrap;
 }
 
-.header__headline {
+// .read-more-state {
+//   display: none;
+// }
+
+// .read-more-target {
+//   opacity: 0;
+//   max-height: 0;
+//   font-size: 0;
+//   transition: 0.25s ease;
+// }
+
+// .read-more-state:checked ~ .read-more-wrap .read-more-target {
+//   opacity: 1;
+//   font-size: inherit;
+//   max-height: 999em;
+// }
+
+// .read-more-state ~ .read-more-trigger:before {
+//   content: 'Show Answer';
+// }
+
+// .read-more-state:checked ~ .read-more-trigger:before {
+//   content: 'Hide Answer';
+// }
+
+// .read-more-trigger,
+// .submit-button {
+//   cursor: pointer;
+//   display: inline-block;
+//   padding: 6px 15px;
+//   background-color: #8ff2ee;
+//   font-size: 0.9em;
+//   line-height: 2;
+//   border: 1px solid #62d8d4;
+//   border-radius: 0.25em;
+//   text-align: center;
+// }
+
+#question,
+#answer,
+#tags {
+  font-family: 'Roboto', sans-serif;
+}
+
+.create {
   text-align: center;
-  font-size: 250%;
-}
+  margin-bottom: 80px;
 
-.card__headline {
-  font-weight: bolder;
-}
+  &__form {
+    display: flex;
+    flex-direction: column;
 
-.header__headline {
-  text-transform: uppercase;
-}
+    &--input {
+      margin: 10px 0 30px 0;
+    }
+  }
 
-.read-more-state {
-  display: none;
-}
-
-.read-more-target {
-  opacity: 0;
-  max-height: 0;
-  font-size: 0;
-  transition: 0.25s ease;
-}
-
-.read-more-state:checked ~ .read-more-wrap .read-more-target {
-  opacity: 1;
-  font-size: inherit;
-  max-height: 999em;
-}
-
-.read-more-state ~ .read-more-trigger:before {
-  content: 'Show Answer';
-}
-
-.read-more-state:checked ~ .read-more-trigger:before {
-  content: 'Hide Answer';
-}
-
-.read-more-trigger,
-.submit-button {
-  cursor: pointer;
-  display: inline-block;
-  padding: 6px 15px;
-  background-color: #8ff2ee;
-  font-size: 0.9em;
-  line-height: 2;
-  border: 1px solid #62d8d4;
-  border-radius: 0.25em;
-  text-align: center;
+  &__label {
+    font-weight: bolder;
+  }
 }

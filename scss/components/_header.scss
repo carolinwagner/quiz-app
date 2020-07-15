@@ -1,4 +1,10 @@
-header {
+.header {
   font-family: 'Bungee Shade', cursive;
   position: sticky;
+
+  &__headline {
+    text-align: center;
+    font-size: 250%;
+    text-transform: uppercase;
+  }
 }

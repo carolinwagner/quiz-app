@@ -15,36 +15,45 @@
     />
   </head>
   <body>
-    <header>
+    <header class="header">
       <h1 class="header__headline">Create</h1>
     </header>
     <main>
-      <section class="create__form">
-        <form>
-          <div>
-            <label for="question" class="create_:headline">Add Question</label>
-            <textarea
-              id="question"
-              name="question"
-              cols="35"
-              rows="6"
-            ></textarea>
-          </div>
+      <section class="create">
+        <form class="create__form">
+          <label for="question" class="create__label">Add Question</label>
+          <textarea
+            class="create__form--input"
+            id="question"
+            name="question"
+            cols="35"
+            rows="6"
+          ></textarea>
 
-          <div>
-            <label for="answer">Add Answer</label>
-            <textarea id="answer" name="answer" cols="35" rows="6"></textarea>
-          </div>
+          <label for="answer" class="create__label">Add Answer</label>
+          <textarea
+            class="create__form--input"
+            id="answer"
+            name="answer"
+            cols="35"
+            rows="6"
+          ></textarea>
 
+          <label for="tags" class="create__label">Add Tag</label>
+          <textarea
+            class="create__form--input"
+            id="tags"
+            name="tags"
+            cols="35"
+            rows="6"
+          ></textarea>
           <div>
-            <label for="tags">Add Tags</label>
-            <textarea id="tags" name="tags" cols="35" rows="6"></textarea>
+            <button class="submit-button">Submit</button>
           </div>
-          <button class="submit-button">Submit</button>
         </form>
       </section>
     </main>
-    <footer>
+    <footer class="footer">
       <nav class="footer__nav">
         <a href="index.html"><img src=img/home.svg alt="Home" /></a>
         <a href="bookmarks.html"

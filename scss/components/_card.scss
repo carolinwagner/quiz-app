@@ -1,0 +1,17 @@
+.card {
+  background-color: white;
+  border-radius: 10px;
+  padding: 30px;
+  border-style: solid;
+  border-color: grey;
+  margin: 0 5px 60px 5px;
+  position: relative;
+
+  &__answer-container {
+    text-align: center;
+  }
+
+  &__headline {
+    font-weight: bolder;
+  }
+}
