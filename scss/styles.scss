@@ -28,12 +28,12 @@
 }
 
 .tag-list li {
-  display: inline;
+  display: inline-block;
   padding: 5px 20px;
   border: 1px solid #8ac4ff;
   border-radius: 8px;
   background-color: #8de4ff;
-  margin-bottom: 30px;
+  margin: 10px;
   white-space: nowrap;
 }
 
@@ -48,4 +48,42 @@
 
 .header__headline {
   text-transform: uppercase;
+}
+
+.read-more-state {
+  display: none;
+}
+
+.read-more-target {
+  opacity: 0;
+  max-height: 0;
+  font-size: 0;
+  transition: 0.25s ease;
+}
+
+.read-more-state:checked ~ .read-more-wrap .read-more-target {
+  opacity: 1;
+  font-size: inherit;
+  max-height: 999em;
+}
+
+.read-more-state ~ .read-more-trigger:before {
+  content: 'Show Answer';
+}
+
+.read-more-state:checked ~ .read-more-trigger:before {
+  content: 'Hide Answer';
+}
+
+.read-more-trigger,
+.submit-button {
+  cursor: pointer;
+  display: inline-block;
+  padding: 6px 15px;
+  background-color: #8ff2ee;
+  font-size: 0.9em;
+  line-height: 2;
+  border: 1px solid #62d8d4;
+  border-radius: 0.25em;
+  text-align: center;
 }
