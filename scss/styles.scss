@@ -1,7 +1,6 @@
 @import './base';
 @import './utility';
 @import './colors';
-@import 'components/button';
 @import 'components/header';
 @import 'components/footer';
 @import 'components/card';
@@ -83,5 +82,40 @@
 
   &__label {
     font-weight: bolder;
+  }
+}
+
+.submit-button {
+  background-color: #8ff2ee;
+  border-radius: 4px;
+  display: inline-block;
+  padding: 6px 15px;
+  margin: 50px 20px 20px 20px;
+  font-size: 80%;
+  cursor: pointer;
+}
+
+.logout {
+  text-align: center;
+
+  &__button {
+    background-color: #8ff2ee;
+    border-radius: 4px;
+    display: inline-block;
+    padding: 6px 15px;
+    font-size: 80%;
+    cursor: pointer;
+  }
+}
+.profile__intro {
+  display: flex;
+  &--image {
+    border-radius: 50%;
+    width: 150px;
+    border: 4px solid white;
+  }
+
+  &--name {
+    margin-left: 20px;
   }
 }
