@@ -9,6 +9,7 @@ var pageIndex = document.querySelector('.page-index');
 var pageBookmark = document.querySelector('.page-bookmark');
 var pageCreate = document.querySelector('.page-create');
 var pageProfile = document.querySelector('.page-profile');
+var buttonBookmark = document.querySelector('.card__bookmark-button');
 homeIcon.addEventListener('click', function () {
   pageIndex.classList.remove('hidden');
   pageBookmark.classList.add('hidden');
@@ -32,4 +33,7 @@ profileIcon.addEventListener('click', function () {
   pageBookmark.classList.add('hidden');
   pageCreate.classList.add('hidden');
   pageProfile.classList.remove('hidden');
+});
+buttonBookmark.addEventListener('click', function () {
+  buttonBookmark.classList.toggle('card__bookmark-button--active');
 });
