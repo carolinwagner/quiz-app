@@ -1,17 +1,35 @@
 "use strict";
 
-console.log('it works');
-var homeIcon = document.querySelector('.home-icon');
-var bookmarkIcon = document.querySelector('.bookmark-icon');
-var createIcon = document.querySelector('.create-icon');
-var profileIcon = document.querySelector('.profile-icon');
-var pageIndex = document.querySelector('.page-index');
-var pageBookmark = document.querySelector('.page-bookmark');
-var pageCreate = document.querySelector('.page-create');
-var pageProfile = document.querySelector('.page-profile');
-var buttonBookmark = document.querySelector('.card__bookmark-button');
-var textShowAnswer = document.querySelector('.text-answer');
-var buttonShowAnswer = document.querySelector('.card__answer-button');
+console.log('it works'); //footer
+
+var homeIcon = get('.home-icon');
+var bookmarkIcon = get('.bookmark-icon');
+var createIcon = get('.create-icon');
+var profileIcon = get('.profile-icon');
+var pageIndex = get('.page-index');
+var pageBookmark = get('.page-bookmark');
+var pageCreate = get('.page-create');
+var pageProfile = get('.page-profile');
+var body = get('body');
+var header = get('header');
+var svg = get('svg');
+var darkmodeSwitch = get('.button__darkmode'); //bookmark
+
+var buttonBookmark = get('.card__bookmark-button'); //show answer
+
+var textShowAnswer = get('.text-answer');
+var buttonShowAnswer = get('.card__answer-button');
+var buttonCaptionIsShowAnswer = true; //darkmode
+
+darkmodeSwitch.addEventListener('click', function () {
+  body.classList.toggle('darkmode');
+  svg.classList.toggle('svg__darkmode');
+});
+
+function get(selector) {
+  return document.querySelector(selector);
+}
+
 homeIcon.addEventListener('click', function () {
   pageIndex.classList.remove('hidden');
   pageBookmark.classList.add('hidden');
@@ -41,5 +59,12 @@ buttonBookmark.addEventListener('click', function () {
 });
 buttonShowAnswer.addEventListener('click', function () {
   textShowAnswer.classList.toggle('hidden');
-  buttonShowAnswer.textContent = 'Hide Answer';
+
+  if (buttonCaptionIsShowAnswer) {
+    buttonShowAnswer.textContent = 'Hide Answer';
+  } else {
+    buttonShowAnswer.textContent = 'Show Answer';
+  }
+
+  buttonCaptionIsShowAnswer = !buttonCaptionIsShowAnswer;
 });

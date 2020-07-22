@@ -1,16 +1,37 @@
 console.log('it works')
+//footer
+const homeIcon = get('.home-icon')
+const bookmarkIcon = get('.bookmark-icon')
+const createIcon = get('.create-icon')
+const profileIcon = get('.profile-icon')
+const pageIndex = get('.page-index')
+const pageBookmark = get('.page-bookmark')
+const pageCreate = get('.page-create')
+const pageProfile = get('.page-profile')
+const body = get('body')
+const header = get('header')
+const svg = get('svg')
+const darkmodeSwitch = get('.button__darkmode')
 
-const homeIcon = document.querySelector('.home-icon')
-const bookmarkIcon = document.querySelector('.bookmark-icon')
-const createIcon = document.querySelector('.create-icon')
-const profileIcon = document.querySelector('.profile-icon')
-const pageIndex = document.querySelector('.page-index')
-const pageBookmark = document.querySelector('.page-bookmark')
-const pageCreate = document.querySelector('.page-create')
-const pageProfile = document.querySelector('.page-profile')
-const buttonBookmark = document.querySelector('.card__bookmark-button')
-const textShowAnswer = document.querySelector('.text-answer')
-const buttonShowAnswer = document.querySelector('.card__answer-button')
+//bookmark
+const buttonBookmark = get('.card__bookmark-button')
+
+//show answer
+const textShowAnswer = get('.text-answer')
+const buttonShowAnswer = get('.card__answer-button')
+
+let buttonCaptionIsShowAnswer = true
+
+//darkmode
+
+darkmodeSwitch.addEventListener('click', () => {
+  body.classList.toggle('darkmode')
+  svg.classList.toggle('svg__darkmode')
+})
+
+function get(selector) {
+  return document.querySelector(selector)
+}
 
 homeIcon.addEventListener('click', () => {
   pageIndex.classList.remove('hidden')
@@ -46,5 +67,10 @@ buttonBookmark.addEventListener('click', () => {
 
 buttonShowAnswer.addEventListener('click', () => {
   textShowAnswer.classList.toggle('hidden')
-  buttonShowAnswer.textContent = 'Hide Answer'
+  if (buttonCaptionIsShowAnswer) {
+    buttonShowAnswer.textContent = 'Hide Answer'
+  } else {
+    buttonShowAnswer.textContent = 'Show Answer'
+  }
+  buttonCaptionIsShowAnswer = !buttonCaptionIsShowAnswer
 })

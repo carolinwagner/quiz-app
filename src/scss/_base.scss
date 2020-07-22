@@ -10,21 +10,26 @@ body {
   font-size: 112.5%;
   font-family: 'Roboto', sans-serif;
   background: linear-gradient(
-    18deg,
-    rgba(2, 0, 36, 1) 4%,
-    rgba(1, 76, 115, 1) 33%,
-    rgba(1, 95, 125, 1) 49%,
-    rgba(1, 122, 139, 1) 57%,
-    rgba(1, 137, 146, 1) 62%,
-    rgba(0, 255, 207, 1) 87%
-  );
-  background-attachment: fixed;
-  background-repeat: no-repeat;
+      18deg,
+      rgba(2, 0, 36, 1) 4%,
+      rgba(1, 76, 115, 1) 33%,
+      rgb(10, 10, 10) 49%,
+      rgba(1, 122, 139, 1) 57%,
+      rgba(1, 137, 146, 1) 62%,
+      rgba(0, 255, 207, 1) 87%
+    )
+    fixed no-repeat;
+  position: relative;
 }
 
 main {
   margin: 30px;
-  overflow: scroll;
-  flex: 1 0 auto;
   height: 100%;
+}
+
+.button__darkmode {
+}
+
+.darkmode {
+  background: darkgrey;
 }
