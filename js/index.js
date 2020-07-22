@@ -10,6 +10,8 @@ var pageBookmark = document.querySelector('.page-bookmark');
 var pageCreate = document.querySelector('.page-create');
 var pageProfile = document.querySelector('.page-profile');
 var buttonBookmark = document.querySelector('.card__bookmark-button');
+var textShowAnswer = document.querySelector('.text-answer');
+var buttonShowAnswer = document.querySelector('.card__answer-button');
 homeIcon.addEventListener('click', function () {
   pageIndex.classList.remove('hidden');
   pageBookmark.classList.add('hidden');
@@ -36,4 +38,8 @@ profileIcon.addEventListener('click', function () {
 });
 buttonBookmark.addEventListener('click', function () {
   buttonBookmark.classList.toggle('card__bookmark-button--active');
+});
+buttonShowAnswer.addEventListener('click', function () {
+  textShowAnswer.classList.toggle('hidden');
+  buttonShowAnswer.textContent = 'Hide Answer';
 });

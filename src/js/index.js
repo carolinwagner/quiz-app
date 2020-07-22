@@ -9,6 +9,8 @@ const pageBookmark = document.querySelector('.page-bookmark')
 const pageCreate = document.querySelector('.page-create')
 const pageProfile = document.querySelector('.page-profile')
 const buttonBookmark = document.querySelector('.card__bookmark-button')
+const textShowAnswer = document.querySelector('.text-answer')
+const buttonShowAnswer = document.querySelector('.card__answer-button')
 
 homeIcon.addEventListener('click', () => {
   pageIndex.classList.remove('hidden')
@@ -40,4 +42,9 @@ profileIcon.addEventListener('click', () => {
 
 buttonBookmark.addEventListener('click', () => {
   buttonBookmark.classList.toggle('card__bookmark-button--active')
+})
+
+buttonShowAnswer.addEventListener('click', () => {
+  textShowAnswer.classList.toggle('hidden')
+  buttonShowAnswer.textContent = 'Hide Answer'
 })
