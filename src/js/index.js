@@ -1,4 +1,5 @@
 console.log('it works')
+
 //footer
 const homeIcon = get('.home-icon')
 const bookmarkIcon = get('.bookmark-icon')
@@ -28,10 +29,6 @@ darkmodeSwitch.addEventListener('click', () => {
   body.classList.toggle('darkmode')
   svg.classList.toggle('svg__darkmode')
 })
-
-function get(selector) {
-  return document.querySelector(selector)
-}
 
 homeIcon.addEventListener('click', () => {
   pageIndex.classList.remove('hidden')
@@ -74,3 +71,7 @@ buttonShowAnswer.addEventListener('click', () => {
   }
   buttonCaptionIsShowAnswer = !buttonCaptionIsShowAnswer
 })
+
+function get(selector) {
+  return document.querySelector(selector)
+}

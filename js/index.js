@@ -25,11 +25,6 @@ darkmodeSwitch.addEventListener('click', function () {
   body.classList.toggle('darkmode');
   svg.classList.toggle('svg__darkmode');
 });
-
-function get(selector) {
-  return document.querySelector(selector);
-}
-
 homeIcon.addEventListener('click', function () {
   pageIndex.classList.remove('hidden');
   pageBookmark.classList.add('hidden');
@@ -68,3 +63,7 @@ buttonShowAnswer.addEventListener('click', function () {
 
   buttonCaptionIsShowAnswer = !buttonCaptionIsShowAnswer;
 });
+
+function get(selector) {
+  return document.querySelector(selector);
+}
