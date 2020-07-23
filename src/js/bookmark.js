@@ -1,6 +1,6 @@
 import { get, getAll } from './util'
 
-export function bookmark() {
+export function initBookmarkToggle() {
   const bookmarks = getAll('.card__bookmark-button')
   bookmarks.forEach((bookmark) => {
     bookmark.addEventListener(

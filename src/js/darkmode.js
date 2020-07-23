@@ -1,6 +1,6 @@
 import { get, getAll } from './util'
 
-export function darkmode() {
+export function initDarkmode() {
   const darkmodeButton = get('.create-darkmode__button')
 
   const body = get('body')

@@ -1,16 +1,14 @@
-console.log('it works')
-
 import { get, getAll } from './util'
 import { initNavigation } from './navigation'
-import { darkmode } from './darkmode'
-import { bookmark } from './bookmark'
-import { showAnswer } from './card'
-import { buttonSubmit } from './create'
+import { initDarkmode } from './darkmode'
+import { initBookmarkToggle } from './bookmark'
+import { initShowAnswer } from './card'
+import { initFormSubmit } from './create'
 
-get()
-getAll()
+console.log('it works')
+
 initNavigation()
-darkmode()
-bookmark()
-showAnswer()
-buttonSubmit()
+initDarkmode()
+initBookmarkToggle()
+initShowAnswer()
+initFormSubmit()
