@@ -1,20 +1,13 @@
 import { get } from './util'
 
-import Navigation from './navigation'
+import { initNavigation } from './navigation'
 
-Navigation()
+initNavigation()
 
 console.log('it works')
 
 //footer
-const homeIcon = get('.home-icon')
-const bookmarkIcon = get('.bookmark-icon')
-const createIcon = get('.create-icon')
-const profileIcon = get('.profile-icon')
-const pageIndex = get('.page-index')
-const pageBookmark = get('.page-bookmark')
-const pageCreate = get('.page-create')
-const pageProfile = get('.page-profile')
+
 const body = get('body')
 const header = get('header')
 const main = get('main')
@@ -50,7 +43,7 @@ darkmodeSwitch.addEventListener('click', () => {
   svg.classList.toggle('svg__darkmode')
 })
 
-//navigation
+//bookmark add
 
 buttonBookmark.addEventListener('click', () => {
   buttonBookmark.classList.toggle('card__bookmark-button--active')
@@ -67,5 +60,3 @@ buttonShowAnswer.addEventListener('click', () => {
   }
   buttonCaptionIsShowAnswer = !buttonCaptionIsShowAnswer
 })
-
-//submit form

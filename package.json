@@ -16,7 +16,9 @@
     "url": "https://github.com/carolinwagner/quiz-app/issues"
   },
   "homepage": "https://github.com/carolinwagner/quiz-app#readme",
-  "dependencies": {},
+  "dependencies": {
+    "navigation": "^5.3.1"
+  },
   "devDependencies": {
     "@babel/core": "^7.10.5",
     "parcel-bundler": "^1.12.4",

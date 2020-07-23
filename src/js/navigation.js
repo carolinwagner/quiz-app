@@ -1,4 +1,15 @@
-export default function initNavigation() {
+import { get } from './util'
+
+export function initNavigation() {
+  const homeIcon = get('.home-icon')
+  const bookmarkIcon = get('.bookmark-icon')
+  const createIcon = get('.create-icon')
+  const profileIcon = get('.profile-icon')
+  const pageIndex = get('.page-index')
+  const pageBookmark = get('.page-bookmark')
+  const pageCreate = get('.page-create')
+  const pageProfile = get('.page-profile')
+
   homeIcon.addEventListener('click', () => {
     pageIndex.classList.remove('hidden')
     pageBookmark.classList.add('hidden')
