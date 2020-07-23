@@ -1,4 +1,4 @@
-import { get } from './util'
+import { get, getAll } from './util'
 
 import { initNavigation } from './navigation'
 
@@ -16,16 +16,18 @@ const darkmodeSwitch = get('.button__darkmode')
 const form = get('.create__form')
 
 //bookmark
-const buttonBookmark = get('.card__bookmark-button')
 
-const bookmarks = document.querySelectorAll('.question__bookmark')
+const bookmarks = getAll('.card__bookmark-button')
 bookmarks.forEach((bookmark) => {
-  bookmark.addEventListener('click', bookmarkToggle(bookmark, 'active'))
+  bookmark.addEventListener(
+    'click',
+    bookmarkToggle(bookmark, 'card__bookmark-button--active')
+  )
 })
 
 function bookmarkToggle(bookmark, classname) {
   return () => {
-    bookmark.classList.toggle(className)
+    bookmark.classList.toggle(classname)
   }
 }
 
@@ -41,12 +43,6 @@ darkmodeSwitch.addEventListener('click', () => {
   body.classList.toggle('darkmode')
   main.classList.toggle('darkmode')
   svg.classList.toggle('svg__darkmode')
-})
-
-//bookmark add
-
-buttonBookmark.addEventListener('click', () => {
-  buttonBookmark.classList.toggle('card__bookmark-button--active')
 })
 
 //show answer
