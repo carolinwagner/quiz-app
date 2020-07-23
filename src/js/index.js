@@ -1,3 +1,9 @@
+import { get } from './util'
+
+import Navigation from './navigation'
+
+Navigation()
+
 console.log('it works')
 
 //footer
@@ -14,9 +20,21 @@ const header = get('header')
 const main = get('main')
 const svg = get('svg')
 const darkmodeSwitch = get('.button__darkmode')
+const form = get('.create__form')
 
 //bookmark
 const buttonBookmark = get('.card__bookmark-button')
+
+const bookmarks = document.querySelectorAll('.question__bookmark')
+bookmarks.forEach((bookmark) => {
+  bookmark.addEventListener('click', bookmarkToggle(bookmark, 'active'))
+})
+
+function bookmarkToggle(bookmark, classname) {
+  return () => {
+    bookmark.classList.toggle(className)
+  }
+}
 
 //show answer
 const textShowAnswer = get('.text-answer')
@@ -32,37 +50,13 @@ darkmodeSwitch.addEventListener('click', () => {
   svg.classList.toggle('svg__darkmode')
 })
 
-homeIcon.addEventListener('click', () => {
-  pageIndex.classList.remove('hidden')
-  pageBookmark.classList.add('hidden')
-  pageCreate.classList.add('hidden')
-  pageProfile.classList.add('hidden')
-})
-
-bookmarkIcon.addEventListener('click', () => {
-  pageIndex.classList.add('hidden')
-  pageBookmark.classList.remove('hidden')
-  pageCreate.classList.add('hidden')
-  pageProfile.classList.add('hidden')
-})
-
-createIcon.addEventListener('click', () => {
-  pageIndex.classList.add('hidden')
-  pageBookmark.classList.add('hidden')
-  pageCreate.classList.remove('hidden')
-  pageProfile.classList.add('hidden')
-})
-
-profileIcon.addEventListener('click', () => {
-  pageIndex.classList.add('hidden')
-  pageBookmark.classList.add('hidden')
-  pageCreate.classList.add('hidden')
-  pageProfile.classList.remove('hidden')
-})
+//navigation
 
 buttonBookmark.addEventListener('click', () => {
   buttonBookmark.classList.toggle('card__bookmark-button--active')
 })
+
+//show answer
 
 buttonShowAnswer.addEventListener('click', () => {
   textShowAnswer.classList.toggle('hidden')
@@ -74,6 +68,4 @@ buttonShowAnswer.addEventListener('click', () => {
   buttonCaptionIsShowAnswer = !buttonCaptionIsShowAnswer
 })
 
-function get(selector) {
-  return document.querySelector(selector)
-}
+//submit form
