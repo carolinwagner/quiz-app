@@ -11,6 +11,7 @@ const pageCreate = get('.page-create')
 const pageProfile = get('.page-profile')
 const body = get('body')
 const header = get('header')
+const main = get('main')
 const svg = get('svg')
 const darkmodeSwitch = get('.button__darkmode')
 
@@ -27,6 +28,7 @@ let buttonCaptionIsShowAnswer = true
 
 darkmodeSwitch.addEventListener('click', () => {
   body.classList.toggle('darkmode')
+  main.classList.toggle('darkmode')
   svg.classList.toggle('svg__darkmode')
 })
 

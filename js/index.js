@@ -12,6 +12,7 @@ var pageCreate = get('.page-create');
 var pageProfile = get('.page-profile');
 var body = get('body');
 var header = get('header');
+var main = get('main');
 var svg = get('svg');
 var darkmodeSwitch = get('.button__darkmode'); //bookmark
 
@@ -23,6 +24,7 @@ var buttonCaptionIsShowAnswer = true; //darkmode
 
 darkmodeSwitch.addEventListener('click', function () {
   body.classList.toggle('darkmode');
+  main.classList.toggle('darkmode');
   svg.classList.toggle('svg__darkmode');
 });
 homeIcon.addEventListener('click', function () {
