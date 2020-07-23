@@ -134,9 +134,19 @@ function get(selector) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = initNavigation;
+exports.initNavigation = initNavigation;
+
+var _util = require("./util");
 
 function initNavigation() {
+  var homeIcon = (0, _util.get)('.home-icon');
+  var bookmarkIcon = (0, _util.get)('.bookmark-icon');
+  var createIcon = (0, _util.get)('.create-icon');
+  var profileIcon = (0, _util.get)('.profile-icon');
+  var pageIndex = (0, _util.get)('.page-index');
+  var pageBookmark = (0, _util.get)('.page-bookmark');
+  var pageCreate = (0, _util.get)('.page-create');
+  var pageProfile = (0, _util.get)('.page-profile');
   homeIcon.addEventListener('click', function () {
     pageIndex.classList.remove('hidden');
     pageBookmark.classList.add('hidden');
@@ -162,26 +172,16 @@ function initNavigation() {
     pageProfile.classList.remove('hidden');
   });
 }
-},{}],"src/js/index.js":[function(require,module,exports) {
+},{"./util":"src/js/util.js"}],"src/js/index.js":[function(require,module,exports) {
 "use strict";
 
 var _util = require("./util");
 
-var _navigation = _interopRequireDefault(require("./navigation"));
+var _navigation = require("./navigation");
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-(0, _navigation.default)();
+(0, _navigation.initNavigation)();
 console.log('it works'); //footer
 
-var homeIcon = (0, _util.get)('.home-icon');
-var bookmarkIcon = (0, _util.get)('.bookmark-icon');
-var createIcon = (0, _util.get)('.create-icon');
-var profileIcon = (0, _util.get)('.profile-icon');
-var pageIndex = (0, _util.get)('.page-index');
-var pageBookmark = (0, _util.get)('.page-bookmark');
-var pageCreate = (0, _util.get)('.page-create');
-var pageProfile = (0, _util.get)('.page-profile');
 var body = (0, _util.get)('body');
 var header = (0, _util.get)('header');
 var main = (0, _util.get)('main');
@@ -210,7 +210,7 @@ darkmodeSwitch.addEventListener('click', function () {
   body.classList.toggle('darkmode');
   main.classList.toggle('darkmode');
   svg.classList.toggle('svg__darkmode');
-}); //navigation
+}); //bookmark add
 
 buttonBookmark.addEventListener('click', function () {
   buttonBookmark.classList.toggle('card__bookmark-button--active');
@@ -226,7 +226,7 @@ buttonShowAnswer.addEventListener('click', function () {
   }
 
   buttonCaptionIsShowAnswer = !buttonCaptionIsShowAnswer;
-}); //submit form
+});
 },{"./util":"src/js/util.js","./navigation":"src/js/navigation.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -255,7 +255,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65262" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49725" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
