@@ -7,8 +7,6 @@ import { initFormSubmit } from './create'
 
 console.log('it works')
 
-get()
-getAll()
 initNavigation()
 initDarkmode()
 initBookmarkToggle()

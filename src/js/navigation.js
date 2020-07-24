@@ -1,4 +1,4 @@
-import { get, getAll } from './util'
+import { get, getAll, getAndAddEventListener } from './util'
 
 export function initNavigation() {
   const homeIcon = get('.home-icon')

@@ -300,8 +300,6 @@ var _card = require("./card");
 var _create = require("./create");
 
 console.log('it works');
-(0, _util.get)();
-(0, _util.getAll)();
 (0, _navigation.initNavigation)();
 (0, _darkmode.initDarkmode)();
 (0, _bookmark.initBookmarkToggle)();
@@ -335,7 +333,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54840" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58457" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
