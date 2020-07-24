@@ -20,7 +20,11 @@
   },
   "homepage": "https://github.com/carolinwagner/quiz-app#readme",
   "dependencies": {
-    "navigation": "^5.3.1"
+    "@storybook/preset-scss": "^1.0.2",
+    "css-loader": "^3.6.0",
+    "navigation": "^5.3.1",
+    "sass-loader": "^9.0.2",
+    "style-loader": "^1.2.1"
   },
   "devDependencies": {
     "@babel/core": "^7.10.5",

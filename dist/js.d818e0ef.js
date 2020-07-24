@@ -133,54 +133,7 @@ function get(selector) {
 function getAll(selector) {
   return document.querySelectorAll(selector);
 }
-},{}],"src/js/navigation.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.initNavigation = initNavigation;
-
-var _util = require("./util");
-
-function initNavigation() {
-  var navIcons = (0, _util.getAll)('[data-js=nav-icon]');
-  var pages = (0, _util.getAll)('[data-js=page]');
-  navIcons.forEach(function (icon) {
-    icon.addEventListener('click', function () {
-      var iconName = icon.dataset.name;
-      pages.forEach(function (page) {
-        var pageName = page.dataset.name;
-        page.classList.toggle('hidden', pageName !== iconName);
-      });
-      navIcons.forEach(function (oneOfAllIcons) {
-        oneOfAllIcons.classList.toggle('nav-icon__active', oneOfAllIcons === icon);
-      });
-    });
-  });
-}
-},{"./util":"src/js/util.js"}],"src/js/darkmode.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.initDarkmode = initDarkmode;
-
-var _util = require("./util");
-
-function initDarkmode() {
-  var darkmodeButton = (0, _util.get)('.create-darkmode__button');
-  var body = (0, _util.get)('body');
-  var header = (0, _util.get)('header');
-  var main = (0, _util.get)('main');
-  darkmodeButton.addEventListener('click', function () {
-    body.classList.toggle('darkmode');
-    header.classList.toggle('darkmode');
-    main.classList.toggle('darkmode');
-  });
-}
-},{"./util":"src/js/util.js"}],"src/js/bookmark.js":[function(require,module,exports) {
+},{}],"src/js/bookmark.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -222,7 +175,7 @@ function initShowAnswer() {
   function addToggleLogic(card) {
     var textShowAnswer = card.querySelector('.text-answer');
     var buttonShowAnswer = card.querySelector('.card__answer-button');
-    buttonShowAnswer.addEventListener('click', function () {
+    buttonShowAnswer === null || buttonShowAnswer === void 0 ? void 0 : buttonShowAnswer.addEventListener('click', function () {
       textShowAnswer.classList.toggle('hidden');
       buttonShowAnswer.textContent = buttonShowAnswer.textContent === 'Hide answer' ? 'Show answer' : 'Hide answer';
     });
@@ -240,24 +193,60 @@ var _util = require("./util");
 
 function initFormSubmit() {
   var form = (0, _util.get)('.create__form');
-  var input1 = (0, _util.get)('.create__form--input1');
-  var input2 = (0, _util.get)('.create__form--input2');
-  var input3 = (0, _util.get)('.create__form--input3');
-  form.addEventListener('submit', function (event) {
+  form === null || form === void 0 ? void 0 : form.addEventListener('submit', function (event) {
     event.preventDefault();
-    input1.value = '';
-    input2.value = '';
-    input3.value = '';
+    form.reset();
+  });
+}
+},{"./util":"src/js/util.js"}],"src/js/darkmode.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.initDarkmode = initDarkmode;
+
+var _util = require("./util");
+
+function initDarkmode() {
+  var darkmodeButton = (0, _util.get)('.create-darkmode__button');
+  var body = (0, _util.get)('body');
+  var header = (0, _util.get)('header');
+  var main = (0, _util.get)('main');
+  darkmodeButton === null || darkmodeButton === void 0 ? void 0 : darkmodeButton.addEventListener('click', function () {
+    body.classList.toggle('darkmode');
+    header.classList.toggle('darkmode');
+    main.classList.toggle('darkmode');
+  });
+}
+},{"./util":"src/js/util.js"}],"src/js/navigation.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.initNavigation = initNavigation;
+
+var _util = require("./util");
+
+function initNavigation() {
+  var navIcons = (0, _util.getAll)('[data-js=nav-icon]');
+  var pages = (0, _util.getAll)('[data-js=page]');
+  navIcons.forEach(function (icon) {
+    icon.addEventListener('click', function () {
+      var iconName = icon.dataset.name;
+      pages.forEach(function (page) {
+        var pageName = page.dataset.name;
+        page.classList.toggle('hidden', pageName !== iconName);
+      });
+      navIcons.forEach(function (oneOfAllIcons) {
+        oneOfAllIcons.classList.toggle('nav-icon__active', oneOfAllIcons === icon);
+      });
+    });
   });
 }
 },{"./util":"src/js/util.js"}],"src/js/index.js":[function(require,module,exports) {
 "use strict";
-
-var _util = require("./util");
-
-var _navigation = require("./navigation");
-
-var _darkmode = require("./darkmode");
 
 var _bookmark = require("./bookmark");
 
@@ -265,13 +254,20 @@ var _card = require("./card");
 
 var _create = require("./create");
 
-console.log('it works');
-(0, _navigation.initNavigation)();
-(0, _darkmode.initDarkmode)();
-(0, _bookmark.initBookmarkToggle)();
-(0, _card.initShowAnswer)();
-(0, _create.initFormSubmit)();
-},{"./util":"src/js/util.js","./navigation":"src/js/navigation.js","./darkmode":"src/js/darkmode.js","./bookmark":"src/js/bookmark.js","./card":"src/js/card.js","./create":"src/js/create.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+var _darkmode = require("./darkmode");
+
+var _navigation = require("./navigation");
+
+document.addEventListener('DOMContentLoaded', function () {
+  setTimeout(function () {
+    (0, _navigation.initNavigation)();
+    (0, _darkmode.initDarkmode)();
+    (0, _bookmark.initBookmarkToggle)();
+    (0, _card.initShowAnswer)();
+    (0, _create.initFormSubmit)();
+  });
+});
+},{"./bookmark":"src/js/bookmark.js","./card":"src/js/card.js","./create":"src/js/create.js","./darkmode":"src/js/darkmode.js","./navigation":"src/js/navigation.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -299,7 +295,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49826" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65015" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
