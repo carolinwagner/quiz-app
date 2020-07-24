@@ -144,53 +144,19 @@ exports.initNavigation = initNavigation;
 var _util = require("./util");
 
 function initNavigation() {
-  var homeIcon = (0, _util.get)('.home-icon');
-  var bookmarkIcon = (0, _util.get)('.bookmark-icon');
-  var createIcon = (0, _util.get)('.create-icon');
-  var profileIcon = (0, _util.get)('.profile-icon');
-  var pageIndex = (0, _util.get)('.page-index');
-  var pageBookmark = (0, _util.get)('.page-bookmark');
-  var pageCreate = (0, _util.get)('.page-create');
-  var pageProfile = (0, _util.get)('.page-profile');
-  homeIcon.addEventListener('click', function () {
-    homeIcon.classList.add('nav-icon__active');
-    bookmarkIcon.classList.remove('nav-icon__active');
-    createIcon.classList.remove('nav-icon__active');
-    profileIcon.classList.remove('nav-icon__active');
-    pageIndex.classList.remove('hidden');
-    pageBookmark.classList.add('hidden');
-    pageCreate.classList.add('hidden');
-    pageProfile.classList.add('hidden');
-  });
-  bookmarkIcon.addEventListener('click', function () {
-    homeIcon.classList.remove('nav-icon__active');
-    bookmarkIcon.classList.add('nav-icon__active');
-    createIcon.classList.remove('nav-icon__active');
-    profileIcon.classList.remove('nav-icon__active');
-    pageIndex.classList.add('hidden');
-    pageBookmark.classList.remove('hidden');
-    pageCreate.classList.add('hidden');
-    pageProfile.classList.add('hidden');
-  });
-  createIcon.addEventListener('click', function () {
-    homeIcon.classList.remove('nav-icon__active');
-    bookmarkIcon.classList.remove('nav-icon__active');
-    createIcon.classList.add('nav-icon__active');
-    profileIcon.classList.remove('nav-icon__active');
-    pageIndex.classList.add('hidden');
-    pageBookmark.classList.add('hidden');
-    pageCreate.classList.remove('hidden');
-    pageProfile.classList.add('hidden');
-  });
-  profileIcon.addEventListener('click', function () {
-    homeIcon.classList.remove('nav-icon__active');
-    bookmarkIcon.classList.remove('nav-icon__active');
-    createIcon.classList.remove('nav-icon__active');
-    profileIcon.classList.add('nav-icon__active');
-    pageIndex.classList.add('hidden');
-    pageBookmark.classList.add('hidden');
-    pageCreate.classList.add('hidden');
-    pageProfile.classList.remove('hidden');
+  var navIcons = (0, _util.getAll)('[data-js=nav-icon]');
+  var pages = (0, _util.getAll)('[data-js=page]');
+  navIcons.forEach(function (icon) {
+    icon.addEventListener('click', function () {
+      var iconName = icon.dataset.name;
+      pages.forEach(function (page) {
+        var pageName = page.dataset.name;
+        page.classList.toggle('hidden', pageName !== iconName);
+      });
+      navIcons.forEach(function (oneOfAllIcons) {
+        oneOfAllIcons.classList.toggle('nav-icon__active', oneOfAllIcons === icon);
+      });
+    });
   });
 }
 },{"./util":"src/js/util.js"}],"src/js/darkmode.js":[function(require,module,exports) {
@@ -225,7 +191,7 @@ exports.initBookmarkToggle = initBookmarkToggle;
 var _util = require("./util");
 
 function initBookmarkToggle() {
-  var bookmarks = (0, _util.getAll)('.card__bookmark-button');
+  var bookmarks = (0, _util.getAll)('[data-js=bookmark]');
   bookmarks.forEach(function (bookmark) {
     bookmark.addEventListener('click', bookmarkToggle(bookmark, 'card__bookmark-button--active'));
   });
@@ -333,7 +299,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58457" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49826" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
