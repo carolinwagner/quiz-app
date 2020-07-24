@@ -8,10 +8,6 @@
   position: relative;
   box-shadow: 6px 4px 6px rgba(1, 57, 95, 0.2);
 
-  &__answer-container {
-    text-align: center;
-  }
-
   &__headline {
     font-weight: bolder;
   }
@@ -44,6 +40,9 @@
       border-right: 25px solid #0a5552;
     }
   }
+}
+.card__answer-container {
+  text-align: center;
 }
 
 .text-answer {

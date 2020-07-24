@@ -52,9 +52,6 @@ main {
   position: relative;
   box-shadow: 6px 4px 6px rgba(1, 57, 95, 0.2);
 }
-.card__answer-container {
-  text-align: center;
-}
 .card__headline {
   font-weight: bolder;
 }
@@ -83,6 +80,10 @@ main {
 .card__bookmark-button--active {
   border-left: 25px solid #0a5552;
   border-right: 25px solid #0a5552;
+}
+
+.card__answer-container {
+  text-align: center;
 }
 
 .text-answer {
