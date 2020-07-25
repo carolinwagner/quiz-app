@@ -193,14 +193,10 @@ var _util = require("./util");
 
 function initFormSubmit() {
   var form = (0, _util.get)('.create__form');
-  var input1 = (0, _util.get)('.create__form--input1');
-  var input2 = (0, _util.get)('.create__form--input2');
-  var input3 = (0, _util.get)('.create__form--input3');
+  console.log('test');
   form.addEventListener('submit', function (event) {
     event.preventDefault();
-    input1.value = '';
-    input2.value = '';
-    input3.value = '';
+    form.reset();
   });
 }
 },{"./util":"src/js/util.js"}],"src/js/darkmode.js":[function(require,module,exports) {
@@ -296,7 +292,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50837" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51160" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
