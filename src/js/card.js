@@ -1,4 +1,4 @@
-import { getAll } from './util'
+import { get, getAll } from './util'
 
 export function initShowAnswer() {
   const cardList = getAll('.card')
