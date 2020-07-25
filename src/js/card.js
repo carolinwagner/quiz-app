@@ -1,6 +1,5 @@
 import { getAll } from './util'
 
-//show answer
 export function initShowAnswer() {
   const cardList = getAll('.card')
   cardList.forEach((card) => {
