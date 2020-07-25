@@ -144,7 +144,7 @@ exports.initBookmarkToggle = initBookmarkToggle;
 var _util = require("./util");
 
 function initBookmarkToggle() {
-  var bookmarks = (0, _util.getAll)('.card__bookmark-button');
+  var bookmarks = (0, _util.getAll)('[data-js="bookmark"]');
   bookmarks.forEach(function (bookmark) {
     bookmark.addEventListener('click', bookmarkToggle(bookmark, 'card__bookmark-button--active'));
   });
@@ -296,7 +296,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50629" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50837" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
