@@ -1,14 +1,16 @@
 import { get, getAll } from './util'
 
 export function initShowAnswer() {
-  const cardList = getAll('.card')
+  const cardList = getAll('section.card')
   cardList.forEach((card) => {
     addToggleLogic(card)
   })
 
   function addToggleLogic(card) {
     const textShowAnswer = card.querySelector('.text-answer')
+
     const buttonShowAnswer = card.querySelector('.card__answer-button')
+
     buttonShowAnswer.addEventListener('click', () => {
       textShowAnswer.classList.toggle('hidden')
       buttonShowAnswer.textContent =

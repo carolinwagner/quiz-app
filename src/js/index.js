@@ -4,9 +4,10 @@ import { initFormSubmit } from './create'
 import { initDarkmode } from './darkmode'
 import { initNavigation } from './navigation'
 
-
-initNavigation()
-initDarkmode()
-initBookmarkToggle()
-initShowAnswer()
-initFormSubmit()
+document.addEventListener('DOMContentLoaded', () => {
+  initNavigation()
+  initDarkmode()
+  initBookmarkToggle()
+  initShowAnswer()
+  initFormSubmit()
+})

@@ -165,9 +165,8 @@ exports.initShowAnswer = initShowAnswer;
 
 var _util = require("./util");
 
-//show answer
 function initShowAnswer() {
-  var cardList = (0, _util.getAll)('.card');
+  var cardList = (0, _util.getAll)('section.card');
   cardList.forEach(function (card) {
     addToggleLogic(card);
   });
@@ -193,7 +192,6 @@ var _util = require("./util");
 
 function initFormSubmit() {
   var form = (0, _util.get)('.create__form');
-  console.log('test');
   form.addEventListener('submit', function (event) {
     event.preventDefault();
     form.reset();
@@ -259,11 +257,13 @@ var _darkmode = require("./darkmode");
 
 var _navigation = require("./navigation");
 
-(0, _navigation.initNavigation)();
-(0, _darkmode.initDarkmode)();
-(0, _bookmark.initBookmarkToggle)();
-(0, _card.initShowAnswer)();
-(0, _create.initFormSubmit)();
+document.addEventListener('DOMContentLoaded', function () {
+  (0, _navigation.initNavigation)();
+  (0, _darkmode.initDarkmode)();
+  (0, _bookmark.initBookmarkToggle)();
+  (0, _card.initShowAnswer)();
+  (0, _create.initFormSubmit)();
+});
 },{"./bookmark":"src/js/bookmark.js","./card":"src/js/card.js","./create":"src/js/create.js","./darkmode":"src/js/darkmode.js","./navigation":"src/js/navigation.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -292,7 +292,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51160" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51353" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
