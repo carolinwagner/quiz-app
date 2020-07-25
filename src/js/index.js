@@ -5,9 +5,11 @@ import { initDarkmode } from './darkmode'
 import { initNavigation } from './navigation'
 
 document.addEventListener('DOMContentLoaded', () => {
-  initNavigation()
-  initDarkmode()
-  initBookmarkToggle()
-  initShowAnswer()
-  initFormSubmit()
+  setTimeout(() => {
+    initNavigation()
+    initDarkmode()
+    initBookmarkToggle()
+    initShowAnswer()
+    initFormSubmit()
+  })
 })

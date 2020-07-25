@@ -7,7 +7,7 @@ export function initDarkmode() {
   const header = get('header')
   const main = get('main')
 
-  darkmodeButton.addEventListener('click', () => {
+  darkmodeButton?.addEventListener('click', () => {
     body.classList.toggle('darkmode')
     header.classList.toggle('darkmode')
     main.classList.toggle('darkmode')
