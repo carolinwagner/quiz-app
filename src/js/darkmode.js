@@ -1,4 +1,4 @@
-import { get, getAll } from './util'
+import { get } from './util'
 
 export function initDarkmode() {
   const darkmodeButton = get('.create-darkmode__button')

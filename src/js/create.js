@@ -1,4 +1,4 @@
-import { get, getAll } from './util'
+import { get } from './util'
 
 export function initFormSubmit() {
   const form = get('.create__form')

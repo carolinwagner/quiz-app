@@ -1,4 +1,4 @@
-import { get, getAll } from './util'
+import { getAll } from './util'
 
 export function initBookmarkToggle() {
   const bookmarks = getAll('.card__bookmark-button')

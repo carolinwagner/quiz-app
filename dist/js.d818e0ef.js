@@ -133,88 +133,7 @@ function get(selector) {
 function getAll(selector) {
   return document.querySelectorAll(selector);
 }
-},{}],"src/js/navigation.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.initNavigation = initNavigation;
-
-var _util = require("./util");
-
-function initNavigation() {
-  var homeIcon = (0, _util.get)('.home-icon');
-  var bookmarkIcon = (0, _util.get)('.bookmark-icon');
-  var createIcon = (0, _util.get)('.create-icon');
-  var profileIcon = (0, _util.get)('.profile-icon');
-  var pageIndex = (0, _util.get)('.page-index');
-  var pageBookmark = (0, _util.get)('.page-bookmark');
-  var pageCreate = (0, _util.get)('.page-create');
-  var pageProfile = (0, _util.get)('.page-profile');
-  homeIcon.addEventListener('click', function () {
-    homeIcon.classList.add('nav-icon__active');
-    bookmarkIcon.classList.remove('nav-icon__active');
-    createIcon.classList.remove('nav-icon__active');
-    profileIcon.classList.remove('nav-icon__active');
-    pageIndex.classList.remove('hidden');
-    pageBookmark.classList.add('hidden');
-    pageCreate.classList.add('hidden');
-    pageProfile.classList.add('hidden');
-  });
-  bookmarkIcon.addEventListener('click', function () {
-    homeIcon.classList.remove('nav-icon__active');
-    bookmarkIcon.classList.add('nav-icon__active');
-    createIcon.classList.remove('nav-icon__active');
-    profileIcon.classList.remove('nav-icon__active');
-    pageIndex.classList.add('hidden');
-    pageBookmark.classList.remove('hidden');
-    pageCreate.classList.add('hidden');
-    pageProfile.classList.add('hidden');
-  });
-  createIcon.addEventListener('click', function () {
-    homeIcon.classList.remove('nav-icon__active');
-    bookmarkIcon.classList.remove('nav-icon__active');
-    createIcon.classList.add('nav-icon__active');
-    profileIcon.classList.remove('nav-icon__active');
-    pageIndex.classList.add('hidden');
-    pageBookmark.classList.add('hidden');
-    pageCreate.classList.remove('hidden');
-    pageProfile.classList.add('hidden');
-  });
-  profileIcon.addEventListener('click', function () {
-    homeIcon.classList.remove('nav-icon__active');
-    bookmarkIcon.classList.remove('nav-icon__active');
-    createIcon.classList.remove('nav-icon__active');
-    profileIcon.classList.add('nav-icon__active');
-    pageIndex.classList.add('hidden');
-    pageBookmark.classList.add('hidden');
-    pageCreate.classList.add('hidden');
-    pageProfile.classList.remove('hidden');
-  });
-}
-},{"./util":"src/js/util.js"}],"src/js/darkmode.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.initDarkmode = initDarkmode;
-
-var _util = require("./util");
-
-function initDarkmode() {
-  var darkmodeButton = (0, _util.get)('.create-darkmode__button');
-  var body = (0, _util.get)('body');
-  var header = (0, _util.get)('header');
-  var main = (0, _util.get)('main');
-  darkmodeButton.addEventListener('click', function () {
-    body.classList.toggle('darkmode');
-    header.classList.toggle('darkmode');
-    main.classList.toggle('darkmode');
-  });
-}
-},{"./util":"src/js/util.js"}],"src/js/bookmark.js":[function(require,module,exports) {
+},{}],"src/js/bookmark.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -284,14 +203,55 @@ function initFormSubmit() {
     input3.value = '';
   });
 }
-},{"./util":"src/js/util.js"}],"src/js/index.js":[function(require,module,exports) {
+},{"./util":"src/js/util.js"}],"src/js/darkmode.js":[function(require,module,exports) {
 "use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.initDarkmode = initDarkmode;
 
 var _util = require("./util");
 
-var _navigation = require("./navigation");
+function initDarkmode() {
+  var darkmodeButton = (0, _util.get)('.create-darkmode__button');
+  var body = (0, _util.get)('body');
+  var header = (0, _util.get)('header');
+  var main = (0, _util.get)('main');
+  darkmodeButton.addEventListener('click', function () {
+    body.classList.toggle('darkmode');
+    header.classList.toggle('darkmode');
+    main.classList.toggle('darkmode');
+  });
+}
+},{"./util":"src/js/util.js"}],"src/js/navigation.js":[function(require,module,exports) {
+"use strict";
 
-var _darkmode = require("./darkmode");
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.initNavigation = initNavigation;
+
+var _util = require("./util");
+
+function initNavigation() {
+  var navIcons = (0, _util.getAll)('[data-js=nav-icon]');
+  var pages = (0, _util.getAll)('[data-js=page]');
+  navIcons.forEach(function (icon) {
+    icon.addEventListener('click', function () {
+      var iconName = icon.dataset.name;
+      pages.forEach(function (page) {
+        var pageName = page.dataset.name;
+        page.classList.toggle('hidden', pageName !== iconName);
+      });
+      navIcons.forEach(function (oneOfAllIcons) {
+        oneOfAllIcons.classList.toggle('nav-icon__active', oneOfAllIcons === icon);
+      });
+    });
+  });
+}
+},{"./util":"src/js/util.js"}],"src/js/index.js":[function(require,module,exports) {
+"use strict";
 
 var _bookmark = require("./bookmark");
 
@@ -299,13 +259,16 @@ var _card = require("./card");
 
 var _create = require("./create");
 
-console.log('it works');
+var _darkmode = require("./darkmode");
+
+var _navigation = require("./navigation");
+
 (0, _navigation.initNavigation)();
 (0, _darkmode.initDarkmode)();
 (0, _bookmark.initBookmarkToggle)();
 (0, _card.initShowAnswer)();
 (0, _create.initFormSubmit)();
-},{"./util":"src/js/util.js","./navigation":"src/js/navigation.js","./darkmode":"src/js/darkmode.js","./bookmark":"src/js/bookmark.js","./card":"src/js/card.js","./create":"src/js/create.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./bookmark":"src/js/bookmark.js","./card":"src/js/card.js","./create":"src/js/create.js","./darkmode":"src/js/darkmode.js","./navigation":"src/js/navigation.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -333,7 +296,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58457" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50629" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

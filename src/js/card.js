@@ -1,4 +1,4 @@
-import { get, getAll } from './util'
+import { getAll } from './util'
 
 //show answer
 export function initShowAnswer() {
