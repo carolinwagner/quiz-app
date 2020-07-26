@@ -2,7 +2,7 @@ import { get, getAll } from './util'
 
 //show answer
 export function initShowAnswer() {
-  const cardList = getAll('.card')
+  const cardList = getAll('[data-js=card]')
   cardList.forEach((card) => {
     addToggleLogic(card)
   })

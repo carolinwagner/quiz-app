@@ -1,2 +1,4 @@
 import '../src/scss/styles.scss'
-import '../src/js/index.js'
+import { setupStorybook } from '../src/js/index.js'
+
+setupStorybook()

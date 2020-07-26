@@ -4,12 +4,19 @@ import { initFormSubmit } from './create'
 import { initDarkmode } from './darkmode'
 import { initNavigation } from './navigation'
 
-document.addEventListener('DOMContentLoaded', () => {
-  setTimeout(() => {
-    initNavigation()
-    initDarkmode()
-    initBookmarkToggle()
-    initShowAnswer()
-    initFormSubmit()
-  })
-})
+function init() {
+  initNavigation()
+  initDarkmode()
+  initBookmarkToggle()
+  initShowAnswer()
+  initFormSubmit()
+}
+
+init()
+
+export function setupStorybook() {
+  console.log('-------- Setting up Storybook ---------')
+  const root = document.querySelector('#root')
+  const observer = new MutationObserver(init)
+  observer.observe(root, { childList: true })
+}

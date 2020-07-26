@@ -146,14 +146,10 @@ var _util = require("./util");
 function initBookmarkToggle() {
   var bookmarks = (0, _util.getAll)('[data-js=bookmark]');
   bookmarks.forEach(function (bookmark) {
-    bookmark.addEventListener('click', bookmarkToggle(bookmark, 'card__bookmark-button--active'));
+    bookmark.addEventListener('click', function () {
+      return bookmark.classList.toggle('card__bookmark-button--active');
+    });
   });
-
-  function bookmarkToggle(bookmark, classname) {
-    return function () {
-      bookmark.classList.toggle(classname);
-    };
-  }
 }
 },{"./util":"src/js/util.js"}],"src/js/card.js":[function(require,module,exports) {
 "use strict";
@@ -167,7 +163,7 @@ var _util = require("./util");
 
 //show answer
 function initShowAnswer() {
-  var cardList = (0, _util.getAll)('.card');
+  var cardList = (0, _util.getAll)('[data-js=card]');
   cardList.forEach(function (card) {
     addToggleLogic(card);
   });
@@ -248,6 +244,11 @@ function initNavigation() {
 },{"./util":"src/js/util.js"}],"src/js/index.js":[function(require,module,exports) {
 "use strict";
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.setupStorybook = setupStorybook;
+
 var _bookmark = require("./bookmark");
 
 var _card = require("./card");
@@ -258,15 +259,24 @@ var _darkmode = require("./darkmode");
 
 var _navigation = require("./navigation");
 
-document.addEventListener('DOMContentLoaded', function () {
-  setTimeout(function () {
-    (0, _navigation.initNavigation)();
-    (0, _darkmode.initDarkmode)();
-    (0, _bookmark.initBookmarkToggle)();
-    (0, _card.initShowAnswer)();
-    (0, _create.initFormSubmit)();
+function init() {
+  (0, _navigation.initNavigation)();
+  (0, _darkmode.initDarkmode)();
+  (0, _bookmark.initBookmarkToggle)();
+  (0, _card.initShowAnswer)();
+  (0, _create.initFormSubmit)();
+}
+
+init();
+
+function setupStorybook() {
+  console.log('-------- Setting up Storybook ---------');
+  var root = document.querySelector('#root');
+  var observer = new MutationObserver(init);
+  observer.observe(root, {
+    childList: true
   });
-});
+}
 },{"./bookmark":"src/js/bookmark.js","./card":"src/js/card.js","./create":"src/js/create.js","./darkmode":"src/js/darkmode.js","./navigation":"src/js/navigation.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -295,7 +305,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65015" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50541" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
