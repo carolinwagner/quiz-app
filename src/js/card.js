@@ -30,12 +30,12 @@ const cardArray = [
   {
     question: 'Hallo ich bin eine Frage2',
     answer: 'Ich bin eine Antwort2',
-    tags: ['tag 1', 'tag 2', 'halt die Fresse'],
+    tags: ['tag 1', 'tag 2'],
   },
   {
     question: 'Hallo ich bin eine Frage3',
     answer: 'Ich bin eine Antwort3',
-    tags: ['tag 1', 'tag 2'],
+    tags: ['tag 1', 'tag 2', 'tag 3', 'tag 4'],
   },
   {
     question: 'Hallo ich bin eine Frage4',
@@ -45,7 +45,7 @@ const cardArray = [
   {
     question: 'Hallo ich bin eine Frage5',
     answer: 'Ich bin eine Antwort5',
-    tags: ['tag 1', 'tag 2'],
+    tags: ['test'],
   },
 ]
 export function initCard() {
@@ -67,6 +67,7 @@ export function createCard({
   tags.forEach((tag) => {
     const listItem = document.createElement('li')
     listItem.innerHTML = tag
+
     tagList.appendChild(listItem)
   })
 

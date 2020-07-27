@@ -190,11 +190,11 @@ var cardArray = [{
 }, {
   question: 'Hallo ich bin eine Frage2',
   answer: 'Ich bin eine Antwort2',
-  tags: ['tag 1', 'tag 2', 'halt die Fresse']
+  tags: ['tag 1', 'tag 2']
 }, {
   question: 'Hallo ich bin eine Frage3',
   answer: 'Ich bin eine Antwort3',
-  tags: ['tag 1', 'tag 2']
+  tags: ['tag 1', 'tag 2', 'tag 3', 'tag 4']
 }, {
   question: 'Hallo ich bin eine Frage4',
   answer: 'Ich bin eine Antwort4',
@@ -202,7 +202,7 @@ var cardArray = [{
 }, {
   question: 'Hallo ich bin eine Frage5',
   answer: 'Ich bin eine Antwort5',
-  tags: ['tag 1', 'tag 2']
+  tags: ['test']
 }];
 
 function initCard() {
@@ -348,7 +348,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56384" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59343" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
