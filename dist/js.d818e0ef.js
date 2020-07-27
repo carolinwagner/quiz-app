@@ -185,19 +185,24 @@ function initShowAnswer() {
 
 var cardArray = [{
   question: 'Hallo ich bin eine Frage1',
-  answer: 'Ich bin eine Antwort1'
+  answer: 'Ich bin eine Antwort1',
+  tags: ['tag 1', 'tag 2', 'tag 3']
 }, {
   question: 'Hallo ich bin eine Frage2',
-  answer: 'Ich bin eine Antwort2'
+  answer: 'Ich bin eine Antwort2',
+  tags: ['tag 1', 'tag 2', 'halt die Fresse']
 }, {
   question: 'Hallo ich bin eine Frage3',
-  answer: 'Ich bin eine Antwort3'
+  answer: 'Ich bin eine Antwort3',
+  tags: ['tag 1', 'tag 2']
 }, {
   question: 'Hallo ich bin eine Frage4',
-  answer: 'Ich bin eine Antwort4'
+  answer: 'Ich bin eine Antwort4',
+  tags: ['tag 1', 'tag 2']
 }, {
   question: 'Hallo ich bin eine Frage5',
-  answer: 'Ich bin eine Antwort5'
+  answer: 'Ich bin eine Antwort5',
+  tags: ['tag 1', 'tag 2']
 }];
 
 function initCard() {
@@ -209,15 +214,24 @@ function createCard() {
       _ref$question = _ref.question,
       question = _ref$question === void 0 ? 'lorem ipsum' : _ref$question,
       _ref$answer = _ref.answer,
-      answer = _ref$answer === void 0 ? 'sit amet, consetetur sadipscing' : _ref$answer;
+      answer = _ref$answer === void 0 ? 'sit amet, consetetur sadipscing' : _ref$answer,
+      _ref$tags = _ref.tags,
+      tags = _ref$tags === void 0 ? ['default-tag'] : _ref$tags;
 
   var newCard = document.createElement('section');
   newCard.className = 'card';
   var target = (0, _util.get)('.page-index');
   target.appendChild(newCard);
+  var tagList = document.createElement('ul');
+  tagList.classList.add('tag-list', 'p-0');
+  tags.forEach(function (tag) {
+    var listItem = document.createElement('li');
+    listItem.innerHTML = tag;
+    tagList.appendChild(listItem);
+  });
   newCard.innerHTML =
   /*html*/
-  "<button data-js=\"bookmark\" class=\"card__bookmark-button p-0\"></button>\n  <h2 class=\"card__headline\">Question 1</h2>\n  <p class=\"card__text card__text--question\">\n  ".concat(question, "\n  \n\n  </p>\n  <div class=\"card__answer-container\">\n    <button class=\"card__answer-button\">Show answer</button>\n\n    <p class=\"text-answer hidden\">\n     ").concat(answer, "\n    </p>\n  </div>\n\n  <ul class=\"tag-list\">\n    <li>Lorem ipsum</li>\n    <li>dolor sit</li>\n    <li>amet consectetur</li>\n  </ul>");
+  "\n    <button data-js=\"bookmark\" class=\"card__bookmark-button p-0\"></button>\n    <h2 class=\"card__headline\">Question</h2>\n    <p class=\"card__text card__text--question\">\n      ".concat(question, "\n    </p>\n    <div class=\"card__answer-container\">\n      <button class=\"card__answer-button\">Show answer</button>\n\n      <p class=\"text-answer hidden\">\n       ").concat(answer, "\n      </p>\n    </div>\n\n    ").concat(tagList.outerHTML, "\n  ");
 }
 },{"./util":"src/js/util.js"}],"src/js/create.js":[function(require,module,exports) {
 "use strict";

@@ -25,22 +25,27 @@ const cardArray = [
   {
     question: 'Hallo ich bin eine Frage1',
     answer: 'Ich bin eine Antwort1',
+    tags: ['tag 1', 'tag 2', 'tag 3'],
   },
   {
     question: 'Hallo ich bin eine Frage2',
     answer: 'Ich bin eine Antwort2',
+    tags: ['tag 1', 'tag 2', 'halt die Fresse'],
   },
   {
     question: 'Hallo ich bin eine Frage3',
     answer: 'Ich bin eine Antwort3',
+    tags: ['tag 1', 'tag 2'],
   },
   {
     question: 'Hallo ich bin eine Frage4',
     answer: 'Ich bin eine Antwort4',
+    tags: ['tag 1', 'tag 2'],
   },
   {
     question: 'Hallo ich bin eine Frage5',
     answer: 'Ich bin eine Antwort5',
+    tags: ['tag 1', 'tag 2'],
   },
 ]
 export function initCard() {
@@ -50,29 +55,35 @@ export function initCard() {
 export function createCard({
   question = 'lorem ipsum',
   answer = 'sit amet, consetetur sadipscing',
+  tags = ['default-tag'],
 } = {}) {
   const newCard = document.createElement('section')
   newCard.className = 'card'
   const target = get('.page-index')
   target.appendChild(newCard)
-  newCard.innerHTML = /*html*/ `<button data-js="bookmark" class="card__bookmark-button p-0"></button>
-  <h2 class="card__headline">Question 1</h2>
-  <p class="card__text card__text--question">
-  ${question}
-  
 
-  </p>
-  <div class="card__answer-container">
-    <button class="card__answer-button">Show answer</button>
+  const tagList = document.createElement('ul')
+  tagList.classList.add('tag-list', 'p-0')
+  tags.forEach((tag) => {
+    const listItem = document.createElement('li')
+    listItem.innerHTML = tag
+    tagList.appendChild(listItem)
+  })
 
-    <p class="text-answer hidden">
-     ${answer}
+  newCard.innerHTML = /*html*/ `
+    <button data-js="bookmark" class="card__bookmark-button p-0"></button>
+    <h2 class="card__headline">Question</h2>
+    <p class="card__text card__text--question">
+      ${question}
     </p>
-  </div>
+    <div class="card__answer-container">
+      <button class="card__answer-button">Show answer</button>
 
-  <ul class="tag-list">
-    <li>Lorem ipsum</li>
-    <li>dolor sit</li>
-    <li>amet consectetur</li>
-  </ul>`
+      <p class="text-answer hidden">
+       ${answer}
+      </p>
+    </div>
+
+    ${tagList.outerHTML}
+  `
 }
