@@ -2,7 +2,7 @@ export default {
   title: 'Headlines',
 }
 
-export const Headlines = () => ` 
+export const Headlines = () => /*html*/ ` 
 <header class="header">
 <h1 class="header__headline">Headline 1</h1>
 </header>

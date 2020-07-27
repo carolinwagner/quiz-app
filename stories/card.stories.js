@@ -2,7 +2,7 @@ export default {
   title: 'Card',
 }
 
-export const Card = () => `
+export const Card = () => /*html*/ `
 <section class="card">
           <button data-js="bookmark" class="p-0"></button>
           <h2 class="card__headline">Question 1</h2>

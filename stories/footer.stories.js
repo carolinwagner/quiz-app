@@ -2,7 +2,7 @@ export default {
   title: 'Footer',
 }
 
-export const Footer = () => ` <footer class="footer">
+export const Footer = () => /*html*/ ` <footer class="footer">
 <nav class="footer__nav">
   <svg
     xmlns="http://www.w3.org/2000/svg"
