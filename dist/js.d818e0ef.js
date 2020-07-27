@@ -182,12 +182,38 @@ function initShowAnswer() {
   }
 }
 
+var cardArray = [{
+  question: 'Hallo ich bin eine Frage1',
+  answer: 'Ich bin eine Antwort1'
+}, {
+  question: 'Hallo ich bin eine Frage2',
+  answer: 'Ich bin eine Antwort2'
+}, {
+  question: 'Hallo ich bin eine Frage3',
+  answer: 'Ich bin eine Antwort3'
+}, {
+  question: 'Hallo ich bin eine Frage4',
+  answer: 'Ich bin eine Antwort4'
+}, {
+  question: 'Hallo ich bin eine Frage5',
+  answer: 'Ich bin eine Antwort5'
+}];
+cardArray.forEach(createCard);
+
 function createCard() {
+  var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
+      _ref$question = _ref.question,
+      question = _ref$question === void 0 ? 'lorem ipsum' : _ref$question,
+      _ref$answer = _ref.answer,
+      answer = _ref$answer === void 0 ? 'sit amet, consetetur sadipscing' : _ref$answer;
+
   var newCard = document.createElement('section');
   newCard.className = 'card';
   var target = (0, _util.get)('.page-index');
   target.appendChild(newCard);
-  newCard.innerHTML = "<button data-js=\"bookmark\" class=\"card__bookmark-button p-0\"></button>\n  <h2 class=\"card__headline\">Question 1</h2>\n  <p class=\"card__text card__text--question\">\n    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rem odio\n    cum repudiandae cumque eius mollitia voluptatem voluptas deleniti\n    quo quaerat ratione unde, repellendus corporis nostrum repellat.\n    Nisi accusantium tempora vel.\n  </p>\n  <div class=\"card__answer-container\">\n    <button class=\"card__answer-button\">Show answer</button>\n\n    <p class=\"text-answer hidden\">\n      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa\n      corrupti doloribus porro asperiores exercitationem harum\n      doloremque nisi repudiandae quod facere! Commodi, accusamus at!\n      Voluptatem corporis laboriosam autem aliquam quidem enim.\n    </p>\n  </div>\n\n  <ul class=\"tag-list\">\n    <li>Lorem ipsum</li>\n    <li>dolor sit</li>\n    <li>amet consectetur</li>\n  </ul>";
+  newCard.innerHTML =
+  /*html*/
+  "<button data-js=\"bookmark\" class=\"card__bookmark-button p-0\"></button>\n  <h2 class=\"card__headline\">Question 1</h2>\n  <p class=\"card__text card__text--question\">\n  ".concat(question, "\n  \n\n  </p>\n  <div class=\"card__answer-container\">\n    <button class=\"card__answer-button\">Show answer</button>\n\n    <p class=\"text-answer hidden\">\n     ").concat(answer, "\n    </p>\n  </div>\n\n  <ul class=\"tag-list\">\n    <li>Lorem ipsum</li>\n    <li>dolor sit</li>\n    <li>amet consectetur</li>\n  </ul>");
 }
 },{"./util":"src/js/util.js"}],"src/js/create.js":[function(require,module,exports) {
 "use strict";
@@ -268,7 +294,6 @@ var _navigation = require("./navigation");
 
 document.addEventListener('DOMContentLoaded', function () {
   setTimeout(function () {
-    (0, _card.createCard)();
     (0, _navigation.initNavigation)();
     (0, _darkmode.initDarkmode)();
     (0, _bookmark.initBookmarkToggle)();
