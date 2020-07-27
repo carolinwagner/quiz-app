@@ -43,8 +43,9 @@ const cardArray = [
     answer: 'Ich bin eine Antwort5',
   },
 ]
-
-cardArray.forEach(createCard)
+export function initCard() {
+  cardArray.forEach(createCard)
+}
 
 export function createCard({
   question = 'lorem ipsum',

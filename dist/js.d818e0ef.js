@@ -162,6 +162,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.initShowAnswer = initShowAnswer;
+exports.initCard = initCard;
 exports.createCard = createCard;
 
 var _util = require("./util");
@@ -198,7 +199,10 @@ var cardArray = [{
   question: 'Hallo ich bin eine Frage5',
   answer: 'Ich bin eine Antwort5'
 }];
-cardArray.forEach(createCard);
+
+function initCard() {
+  cardArray.forEach(createCard);
+}
 
 function createCard() {
   var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
@@ -294,6 +298,7 @@ var _navigation = require("./navigation");
 
 document.addEventListener('DOMContentLoaded', function () {
   setTimeout(function () {
+    (0, _card.initCard)();
     (0, _navigation.initNavigation)();
     (0, _darkmode.initDarkmode)();
     (0, _bookmark.initBookmarkToggle)();
