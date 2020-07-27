@@ -162,6 +162,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.initShowAnswer = initShowAnswer;
+exports.createCard = createCard;
 
 var _util = require("./util");
 
@@ -174,11 +175,19 @@ function initShowAnswer() {
   function addToggleLogic(card) {
     var textShowAnswer = card.querySelector('.text-answer');
     var buttonShowAnswer = card.querySelector('.card__answer-button');
-    buttonShowAnswer.addEventListener('click', function () {
+    buttonShowAnswer === null || buttonShowAnswer === void 0 ? void 0 : buttonShowAnswer.addEventListener('click', function () {
       textShowAnswer.classList.toggle('hidden');
       buttonShowAnswer.textContent = buttonShowAnswer.textContent === 'Hide answer' ? 'Show answer' : 'Hide answer';
     });
   }
+}
+
+function createCard() {
+  var newCard = document.createElement('section');
+  newCard.className = 'card';
+  var target = (0, _util.get)('.page-index');
+  target.appendChild(newCard);
+  newCard.innerHTML = "<button data-js=\"bookmark\" class=\"card__bookmark-button p-0\"></button>\n  <h2 class=\"card__headline\">Question 1</h2>\n  <p class=\"card__text card__text--question\">\n    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rem odio\n    cum repudiandae cumque eius mollitia voluptatem voluptas deleniti\n    quo quaerat ratione unde, repellendus corporis nostrum repellat.\n    Nisi accusantium tempora vel.\n  </p>\n  <div class=\"card__answer-container\">\n    <button class=\"card__answer-button\">Show answer</button>\n\n    <p class=\"text-answer hidden\">\n      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa\n      corrupti doloribus porro asperiores exercitationem harum\n      doloremque nisi repudiandae quod facere! Commodi, accusamus at!\n      Voluptatem corporis laboriosam autem aliquam quidem enim.\n    </p>\n  </div>\n\n  <ul class=\"tag-list\">\n    <li>Lorem ipsum</li>\n    <li>dolor sit</li>\n    <li>amet consectetur</li>\n  </ul>";
 }
 },{"./util":"src/js/util.js"}],"src/js/create.js":[function(require,module,exports) {
 "use strict";
@@ -192,7 +201,7 @@ var _util = require("./util");
 
 function initFormSubmit() {
   var form = (0, _util.get)('.create__form');
-  form.addEventListener('submit', function (event) {
+  form === null || form === void 0 ? void 0 : form.addEventListener('submit', function (event) {
     event.preventDefault();
     form.reset();
   });
@@ -212,7 +221,7 @@ function initDarkmode() {
   var body = (0, _util.get)('body');
   var header = (0, _util.get)('header');
   var main = (0, _util.get)('main');
-  darkmodeButton.addEventListener('click', function () {
+  darkmodeButton === null || darkmodeButton === void 0 ? void 0 : darkmodeButton.addEventListener('click', function () {
     body.classList.toggle('darkmode');
     header.classList.toggle('darkmode');
     main.classList.toggle('darkmode');
@@ -258,11 +267,14 @@ var _darkmode = require("./darkmode");
 var _navigation = require("./navigation");
 
 document.addEventListener('DOMContentLoaded', function () {
-  (0, _navigation.initNavigation)();
-  (0, _darkmode.initDarkmode)();
-  (0, _bookmark.initBookmarkToggle)();
-  (0, _card.initShowAnswer)();
-  (0, _create.initFormSubmit)();
+  setTimeout(function () {
+    (0, _card.createCard)();
+    (0, _navigation.initNavigation)();
+    (0, _darkmode.initDarkmode)();
+    (0, _bookmark.initBookmarkToggle)();
+    (0, _card.initShowAnswer)();
+    (0, _create.initFormSubmit)();
+  });
 });
 },{"./bookmark":"src/js/bookmark.js","./card":"src/js/card.js","./create":"src/js/create.js","./darkmode":"src/js/darkmode.js","./navigation":"src/js/navigation.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -292,7 +304,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51353" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56384" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
