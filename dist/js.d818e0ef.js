@@ -161,33 +161,16 @@ function initBookmarkToggle() {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.initShowAnswer = initShowAnswer;
-exports.initCard = initCard;
+exports.initCards = initCards;
 exports.createCard = createCard;
 exports.cards = void 0;
 
 var _util = require("./util");
 
-function initShowAnswer() {
-  var cardList = (0, _util.getAll)('section.card');
-  cardList.forEach(function (card) {
-    addToggleLogic(card);
-  });
-
-  function addToggleLogic(card) {
-    var textShowAnswer = card.querySelector('.text-answer');
-    var buttonShowAnswer = card.querySelector('.card__answer-button');
-    buttonShowAnswer === null || buttonShowAnswer === void 0 ? void 0 : buttonShowAnswer.addEventListener('click', function () {
-      textShowAnswer.classList.toggle('hidden');
-      buttonShowAnswer.textContent = buttonShowAnswer.textContent === 'Hide answer' ? 'Show answer' : 'Hide answer';
-    });
-  }
-}
-
 var cards = [{
-  question: 'Hallo ich bin eine Frage1',
-  answer: 'Ich bin eine Antwort1',
-  tags: ['tag 1', 'tag 2', 'tag 3']
+  question: 'What does forEach do/',
+  answer: 'I iterates over an array etc.',
+  tags: ['js']
 }, {
   question: 'Hallo ich bin eine Frage2',
   answer: 'Ich bin eine Antwort2',
@@ -202,25 +185,22 @@ var cards = [{
   tags: ['tag 1', 'tag 2']
 }, {
   question: 'Hallo ich bin eine Frage5',
-  answer: 'Ich bin eine Antwort5',
-  tags: ['test']
+  answer: 'Ich bin eine Antwort5'
 }];
 exports.cards = cards;
 var target = (0, _util.get)('.page-index');
 
-function initCard() {
+function initCards() {
   target.innerHTML = '';
   cards.forEach(createCard);
 }
 
 function createCard() {
   var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
-      _ref$question = _ref.question,
-      question = _ref$question === void 0 ? 'lorem ipsum' : _ref$question,
-      _ref$answer = _ref.answer,
-      answer = _ref$answer === void 0 ? 'sit amet, consetetur sadipscing' : _ref$answer,
+      question = _ref.question,
+      answer = _ref.answer,
       _ref$tags = _ref.tags,
-      tags = _ref$tags === void 0 ? ['default-tag'] : _ref$tags;
+      tags = _ref$tags === void 0 ? [] : _ref$tags;
 
   var newCard = document.createElement('section');
   newCard.className = 'card';
@@ -234,7 +214,26 @@ function createCard() {
   });
   newCard.innerHTML =
   /*html*/
-  "\n    <button data-js=\"bookmark\" class=\"card__bookmark-button p-0\"></button>\n    <h2 class=\"card__headline\">Question</h2>\n    <p class=\"card__text card__text--question\">\n      ".concat(question, "\n    </p>\n    <div class=\"card__answer-container\">\n      <button class=\"card__answer-button\">Show answer</button>\n\n      <p class=\"text-answer hidden\">\n       ").concat(answer, "\n      </p>\n    </div>\n\n    ").concat(tagList.outerHTML, "\n  ");
+  "\n    <button data-js=\"bookmark\" class=\"card__bookmark-button p-0\"></button>\n    <h2 class=\"card__headline\">Question</h2>\n    <p class=\"card__text card__text--question\">\n      ".concat(question, "\n    </p>\n    <div class=\"card__answer-container\">\n      <button class=\"card__answer-button\">Show answer</button>\n\n      <p class=\"text-answer hidden\">\n       ").concat(answer, "\n      </p>\n    </div>\n  ");
+  newCard.appendChild(tagList);
+  addToggleLogic(newCard);
+  addBookmarkLogic(newCard);
+}
+
+function addBookmarkLogic(card) {
+  var bookmark = card.querySelector('[data-js="bookmark"]');
+  bookmark.addEventListener('click', function () {
+    return bookmark.classList.toggle('card__bookmark-button--active');
+  });
+}
+
+function addToggleLogic(card) {
+  var textShowAnswer = card.querySelector('.text-answer');
+  var buttonShowAnswer = card.querySelector('.card__answer-button');
+  buttonShowAnswer === null || buttonShowAnswer === void 0 ? void 0 : buttonShowAnswer.addEventListener('click', function () {
+    textShowAnswer.classList.toggle('hidden');
+    buttonShowAnswer.textContent = buttonShowAnswer.textContent === 'Hide answer' ? 'Show answer' : 'Hide answer';
+  });
 }
 },{"./util":"src/js/util.js"}],"src/js/create.js":[function(require,module,exports) {
 "use strict";
@@ -373,7 +372,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63690" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64359" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

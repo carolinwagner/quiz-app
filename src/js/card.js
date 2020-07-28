@@ -1,31 +1,10 @@
-import { get, getAll } from './util'
-
-export function initShowAnswer() {
-  const cardList = getAll('section.card')
-  cardList.forEach((card) => {
-    addToggleLogic(card)
-  })
-
-  function addToggleLogic(card) {
-    const textShowAnswer = card.querySelector('.text-answer')
-
-    const buttonShowAnswer = card.querySelector('.card__answer-button')
-
-    buttonShowAnswer?.addEventListener('click', () => {
-      textShowAnswer.classList.toggle('hidden')
-      buttonShowAnswer.textContent =
-        buttonShowAnswer.textContent === 'Hide answer'
-          ? 'Show answer'
-          : 'Hide answer'
-    })
-  }
-}
+import { get } from './util'
 
 export const cards = [
   {
-    question: 'Hallo ich bin eine Frage1',
-    answer: 'Ich bin eine Antwort1',
-    tags: ['tag 1', 'tag 2', 'tag 3'],
+    question: 'What does forEach do/',
+    answer: 'I iterates over an array etc.',
+    tags: ['js'],
   },
   {
     question: 'Hallo ich bin eine Frage2',
@@ -45,22 +24,17 @@ export const cards = [
   {
     question: 'Hallo ich bin eine Frage5',
     answer: 'Ich bin eine Antwort5',
-    tags: ['test'],
   },
 ]
 
 const target = get('.page-index')
 
-export function initCard() {
+export function initCards() {
   target.innerHTML = ''
   cards.forEach(createCard)
 }
 
-export function createCard({
-  question = 'lorem ipsum',
-  answer = 'sit amet, consetetur sadipscing',
-  tags = ['default-tag'],
-} = {}) {
+export function createCard({ question, answer, tags = [] } = {}) {
   const newCard = document.createElement('section')
   newCard.className = 'card'
 
@@ -88,7 +62,28 @@ export function createCard({
        ${answer}
       </p>
     </div>
-
-    ${tagList.outerHTML}
   `
+  newCard.appendChild(tagList)
+  addToggleLogic(newCard)
+  addBookmarkLogic(newCard)
+}
+
+function addBookmarkLogic(card) {
+  const bookmark = card.querySelector('[data-js="bookmark"]')
+  bookmark.addEventListener('click', () =>
+    bookmark.classList.toggle('card__bookmark-button--active')
+  )
+}
+
+function addToggleLogic(card) {
+  const textShowAnswer = card.querySelector('.text-answer')
+  const buttonShowAnswer = card.querySelector('.card__answer-button')
+
+  buttonShowAnswer?.addEventListener('click', () => {
+    textShowAnswer.classList.toggle('hidden')
+    buttonShowAnswer.textContent =
+      buttonShowAnswer.textContent === 'Hide answer'
+        ? 'Show answer'
+        : 'Hide answer'
+  })
 }
