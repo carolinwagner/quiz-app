@@ -336,7 +336,7 @@ var _navigation = require("./navigation");
 
 document.addEventListener('DOMContentLoaded', function () {
   setTimeout(function () {
-    (0, _card.initCard)();
+    (0, _card.initCards)();
     (0, _navigation.initNavigation)();
     (0, _darkmode.initDarkmode)();
     (0, _bookmark.initBookmarkToggle)();
@@ -372,7 +372,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64359" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65312" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
