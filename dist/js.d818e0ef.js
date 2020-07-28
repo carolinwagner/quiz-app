@@ -141,6 +141,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.initCards = initCards;
 exports.createCard = createCard;
+exports.cards = void 0;
 
 var _util = require("./util");
 
@@ -164,8 +165,11 @@ var cards = [{
   question: 'Hallo ich bin eine Frage5',
   answer: 'Ich bin eine Antwort5'
 }];
+exports.cards = cards;
+var target = (0, _util.get)('.page-index');
 
 function initCards() {
+  target.innerHTML = '';
   cards.forEach(createCard);
 }
 
@@ -178,7 +182,6 @@ function createCard() {
 
   var newCard = document.createElement('section');
   newCard.className = 'card';
-  var target = (0, _util.get)('.page-index');
   target.appendChild(newCard);
   var tagList = document.createElement('ul');
   tagList.classList.add('tag-list', 'p-0');
@@ -220,14 +223,28 @@ exports.initFormSubmit = initFormSubmit;
 
 var _util = require("./util");
 
+var _card = require("./card");
+
 function initFormSubmit() {
   var form = (0, _util.get)('.create__form');
   form === null || form === void 0 ? void 0 : form.addEventListener('submit', function (event) {
     event.preventDefault();
+    var question = form.question,
+        answer = form.answer,
+        tags = form.tags;
+
+    _card.cards.push({
+      question: question.value,
+      answer: answer.value,
+      tags: tags.value.split(',').map(function (tag) {
+        return tag.trim();
+      })
+    });
+
     form.reset();
   });
 }
-},{"./util":"src/js/util.js"}],"src/js/darkmode.js":[function(require,module,exports) {
+},{"./util":"src/js/util.js","./card":"src/js/card.js"}],"src/js/darkmode.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -258,12 +275,20 @@ exports.initNavigation = initNavigation;
 
 var _util = require("./util");
 
+var _card = require("./card");
+
 function initNavigation() {
   var navIcons = (0, _util.getAll)('[data-js=nav-icon]');
   var pages = (0, _util.getAll)('[data-js=page]');
   navIcons.forEach(function (icon) {
     icon.addEventListener('click', function () {
       var iconName = icon.dataset.name;
+
+      if (iconName === 'home') {
+        console.log('home clicked');
+        (0, _card.initCards)();
+      }
+
       pages.forEach(function (page) {
         var pageName = page.dataset.name;
         page.classList.toggle('hidden', pageName !== iconName);
@@ -274,7 +299,7 @@ function initNavigation() {
     });
   });
 }
-},{"./util":"src/js/util.js"}],"src/js/index.js":[function(require,module,exports) {
+},{"./util":"src/js/util.js","./card":"src/js/card.js"}],"src/js/index.js":[function(require,module,exports) {
 "use strict";
 
 var _card = require("./card");
@@ -321,7 +346,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50269" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52618" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

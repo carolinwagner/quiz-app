@@ -1,6 +1,6 @@
 import { get } from './util'
 
-const cards = [
+export const cards = [
   {
     question: 'What does forEach do/',
     answer: 'I iterates over an array etc.',
@@ -27,14 +27,17 @@ const cards = [
   },
 ]
 
+const target = get('.page-index')
+
 export function initCards() {
+  target.innerHTML = ''
   cards.forEach(createCard)
 }
 
 export function createCard({ question, answer, tags = [] } = {}) {
   const newCard = document.createElement('section')
   newCard.className = 'card'
-  const target = get('.page-index')
+
   target.appendChild(newCard)
 
   const tagList = document.createElement('ul')

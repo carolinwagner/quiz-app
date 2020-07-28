@@ -1,4 +1,5 @@
 import { getAll } from './util'
+import { initCards } from './card'
 
 export function initNavigation() {
   const navIcons = getAll('[data-js=nav-icon]')
@@ -7,6 +8,11 @@ export function initNavigation() {
   navIcons.forEach((icon) => {
     icon.addEventListener('click', () => {
       const iconName = icon.dataset.name
+
+      if (iconName === 'home') {
+        console.log('home clicked')
+        initCards()
+      }
 
       pages.forEach((page) => {
         const pageName = page.dataset.name
