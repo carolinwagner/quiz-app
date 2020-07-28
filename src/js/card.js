@@ -21,7 +21,7 @@ export function initShowAnswer() {
   }
 }
 
-const cardArray = [
+export const cards = [
   {
     question: 'Hallo ich bin eine Frage1',
     answer: 'Ich bin eine Antwort1',
@@ -48,8 +48,12 @@ const cardArray = [
     tags: ['test'],
   },
 ]
+
+const target = get('.page-index')
+
 export function initCard() {
-  cardArray.forEach(createCard)
+  target.innerHTML = ''
+  cards.forEach(createCard)
 }
 
 export function createCard({
@@ -59,7 +63,7 @@ export function createCard({
 } = {}) {
   const newCard = document.createElement('section')
   newCard.className = 'card'
-  const target = get('.page-index')
+
   target.appendChild(newCard)
 
   const tagList = document.createElement('ul')
