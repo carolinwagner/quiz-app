@@ -41,7 +41,7 @@ export function createCard({ question, answer, tags = [] } = {}) {
   target.appendChild(newCard)
 
   const tagList = document.createElement('ul')
-  tagList.classList.add('tag-list', 'p-0')
+  tagList.classList.add('tag-list')
   tags.forEach((tag) => {
     const listItem = document.createElement('li')
     listItem.innerHTML = tag

@@ -206,7 +206,7 @@ function createCard() {
   newCard.className = 'card';
   target.appendChild(newCard);
   var tagList = document.createElement('ul');
-  tagList.classList.add('tag-list', 'p-0');
+  tagList.classList.add('tag-list');
   tags.forEach(function (tag) {
     var listItem = document.createElement('li');
     listItem.innerHTML = tag;
@@ -372,7 +372,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65312" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49440" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
