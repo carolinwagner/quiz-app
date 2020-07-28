@@ -308,7 +308,7 @@ function initNavigation() {
 
       if (iconName === 'home') {
         console.log('home clicked');
-        (0, _card.initCard)();
+        (0, _card.initCards)();
       }
 
       pages.forEach(function (page) {
